@@ -1,0 +1,17 @@
+{
+    "name": "mk/webstore",
+    "description": "Loja online em Php",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Markus Lima",
+            "email": "markus@mkbits.com.br"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "core\\": "core/"
+        }
+    }
+}
