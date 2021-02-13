@@ -1,0 +1,16 @@
+/* app.css */
+
+.navegacao{
+    background-color: rgb(117, 145, 171);
+    color: #000;
+}
+
+.rodape{
+    background-color: rgb(43, 47, 43);
+    color: #fff;
+
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
