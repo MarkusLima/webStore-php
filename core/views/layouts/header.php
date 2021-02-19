@@ -3,7 +3,7 @@
 use core\classes\Store;
 
 //$_SESSION['cliente'] = 'Markus';
-unset( $_SESSION['cliente']);
+unset($_SESSION['cliente']);
 ?>
 
 <div class="container-fluid navegacao">
@@ -19,11 +19,11 @@ unset( $_SESSION['cliente']);
             <?php
 
             if (Store::clienteLogado()) : ?>
-                <a href="?a=inicio">Logout</a>
-                <a href="?a=loja">A minha conta</a>
+                <a href="?a=minha_conta">Logout</a>
+                <a href="?a=logout">A minha conta</a>
             <?php else : ?>
-                <a href="?a=inicio">Login</a>
-                <a href="?a=loja">Criar conta</a>
+                <a href="?a=login">Login</a>
+                <a href="?a=novo_cliente">Criar conta</a>
             <?php endif; ?>
 
 

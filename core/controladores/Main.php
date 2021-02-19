@@ -36,4 +36,26 @@ class Main{
             'layouts/html_footer',
         ], $dados);
     }
+
+        public function novo_cliente(){
+      
+            //verifica se tem seccao aberta
+            if(Store::clienteLogado()){
+                $this->index();
+                return;
+            }
+
+
+        Store::Layout([
+            'layouts/html_header',
+            'layouts/header',
+            'loja',
+            'layouts/footer',
+            'layouts/html_footer',
+        ]);
+    }
+
+    public function login(){
+        echo 'login';
+    }
 }
