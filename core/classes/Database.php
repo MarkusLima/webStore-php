@@ -34,6 +34,7 @@ class Database
 
     public function read($sql, $params = null)
     {
+        $sql = trim($sql);
         //verifica se e uma ligacao select
         if (!preg_match("/^SELECT/i", $sql)) {
             throw new Exception('Base de dados - Não é uma intrucao SELECT,');
@@ -44,13 +45,15 @@ class Database
 
         try {
             //conexao com o BD
-            if (empty($params)) {
+            if (!empty($params)) {
                 $executar = $this->ligacao->prepare($sql);
                 $executar->execute($params);
                 $response = $executar->fetchAll(PDO::FETCH_CLASS);
             } else {
                 $executar = $this->ligacao->prepare($sql);
                 $executar->execute();
+                // print_r($params);
+                // die();
                 $response = $executar->fetchAll(PDO::FETCH_CLASS);
             }
         } catch (PDOException $e) {
@@ -66,6 +69,7 @@ class Database
 
     public function create($sql, $params = null)
     {
+        $sql = trim($sql);
         if (!preg_match("/^INSERT/i", $sql)) {
             throw new Exception('Base de dados - Não é uma intrucao INSERT,');
         }
@@ -75,7 +79,7 @@ class Database
 
         try {
             //conexao com o BD
-            if (empty($params)) {
+            if (!empty($params)) {
                 $executar = $this->ligacao->prepare($sql);
                 $executar->execute($params);
             } else {
@@ -93,6 +97,7 @@ class Database
 
     public function update($sql, $params = null)
     {
+        $sql = trim($sql);
         if (!preg_match("/^UPDATE/i", $sql)) {
             throw new Exception('Base de dados - Não é uma intrucao UPDATE,');
         }
@@ -102,7 +107,7 @@ class Database
 
         try {
             //conexao com o BD
-            if (empty($params)) {
+            if (!empty($params)) {
                 $executar = $this->ligacao->prepare($sql);
                 $executar->execute($params);
             } else {
@@ -119,6 +124,7 @@ class Database
 
     public function delete($sql, $params = null)
     {
+        $sql = trim($sql);
         if (!preg_match("/^DELETE/i", $sql)) {
             throw new Exception('Base de dados - Não é uma intrucao DELETE,');
         }
@@ -128,7 +134,7 @@ class Database
 
         try {
             //conexao com o BD
-            if (empty($params)) {
+            if (!empty($params)) {
                 $executar = $this->ligacao->prepare($sql);
                 $executar->execute($params);
             } else {
@@ -145,6 +151,7 @@ class Database
 
     public function search($sql, $params = null)
     {
+        $sql = trim($sql);
         if (!preg_match("/^INSERT/i", $sql)) {
             throw new Exception('Base de dados - Não é uma intrucao INSERT,');
         }
@@ -155,7 +162,7 @@ class Database
 
         try {
             //conexao com o BD
-            if (empty($params)) {
+            if (!empty($params)) {
                 $executar = $this->ligacao->prepare($sql);
                 $executar->execute($params);
             } else {
@@ -176,6 +183,7 @@ class Database
     // Generica----------------------------------------------------------
     public function statement($sql, $params = null)
     {
+        $sql = trim($sql);
         if (preg_match("/^(SELECT|INSERT|UPDATE|DELETE)/i", $sql)) {
             throw new Exception('Base de dados - Intrucao invalida,');
         }
@@ -186,7 +194,7 @@ class Database
 
         try {
             //conexao com o BD
-            if (empty($params)) {
+            if (!empty($params)) {
                 $executar = $this->ligacao->prepare($sql);
                 $executar->execute($params);
             } else {

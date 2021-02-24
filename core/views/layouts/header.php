@@ -19,11 +19,11 @@ unset( $_SESSION['cliente']);
             <?php
 
             if (Store::clienteLogado()) : ?>
-                <a href="?a=inicio">Logout</a>
+                <a href="?a=logout">Logout</a>
                 <a href="?a=loja">A minha conta</a>
             <?php else : ?>
                 <a href="?a=inicio">Login</a>
-                <a href="?a=loja">Criar conta</a>
+                <a href="?a=novo_cliente">Criar conta</a>
             <?php endif; ?>
 
 
