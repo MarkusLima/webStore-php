@@ -3,7 +3,7 @@
 use core\classes\Store;
 
 //$_SESSION['cliente'] = 'Markus';
-unset( $_SESSION['cliente']);
+unset($_SESSION['cliente']);
 ?>
 
 <div class="container-fluid navegacao">

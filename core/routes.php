@@ -1,11 +1,17 @@
 <?php 
 
+var_dump($_GET['url']);
+
 $rotas = [
     'inicio' => 'main@index',
     'loja' => 'main@loja',
     'carrinho' => 'loja@carrinho',
     'novo_cliente' => 'main@novo_cliente',
+<<<<<<< HEAD
     'criar_cliente' => 'main@criar_cliente'
+=======
+    'login' => 'main@login'
+>>>>>>> 995db490d90af75dc6e6fdd182a7dc9b76910d1b
 ];
 
 $acao = 'inicio';
