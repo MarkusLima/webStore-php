@@ -1,9 +1,9 @@
 <?php
 
-namespace core\controladores;
+namespace core\controllers;
 
-use core\classes\Database;
 use core\classes\Store;
+use core\models\Clientes;
 
 class Main
 {
@@ -14,6 +14,9 @@ class Main
             'titulo' => 'Este é o titulo!!!!',
             'clientes' => ['Markus', 'Juju', 'Eu']
         ];
+        // $clientes = new Clientes();
+        // $clientes->teste();
+        // die();
 
         Store::Layout([
             'layouts/html_header',
@@ -86,15 +89,20 @@ class Main
         }
 
         //novo cliente
-        $bd = new Database();
-        $params = [
-            ':e' => strtolower(trim($_POST['mail']))
-        ];
-        $result = $bd->read("SELECT email FROM clientes WHERE email = :e", $params);
-        if (count($result) != 0) {
+        $cliente = new Clientes();
+        if($cliente->verificar_email_existe($_POST['mail'])){
             $_SESSION['erro'] = 'Ja existe';
             $this->novo_cliente();
             return;
         }
+
+        $purl = $cliente->registra_cliente();
+
+        $link_purl = "http://localhost/webStore-php/public/?a=confirmar_email&purl=$purl";
+        die('foi');
+
+
+
     }
 }
+

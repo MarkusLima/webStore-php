@@ -28,4 +28,9 @@ class Store
         return isset($_SESSION['cliente']);
 
     }
+
+    public static function criarHash($qtd_caracter = 20){
+        $char = "01234567890123456789abcdefghijklmnopqrstuvxzywabcdefghijklmnopqrstuvxzywABCDEFGHIJKLMNOPQRSTUVXYZWABCDEFGHIJKLMNOPQRSTUVXYZW";
+        return substr(str_shuffle($char), 0, $qtd_caracter);
+    }
 }
