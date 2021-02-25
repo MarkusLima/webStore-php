@@ -15,12 +15,20 @@ class ComposerStaticInit750c6d0ba9540050942970323268e591
         array (
             'core\\' => 5,
         ),
+        'P' => 
+        array (
+            'PHPMailer\\PHPMailer\\' => 20,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'core\\' => 
         array (
             0 => __DIR__ . '/../..' . '/core',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
     );
 

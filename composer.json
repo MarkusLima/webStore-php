@@ -8,7 +8,9 @@
             "email": "markus@mkbits.com.br"
         }
     ],
-    "require": {},
+    "require": {
+        "phpmailer/phpmailer": "^6.3"
+    },
     "autoload": {
         "psr-4": {
             "core\\": "core/"
